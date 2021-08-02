@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './BandComponents.module.sass'
+import Image from 'next/image'
 
 const BandComponent = ({name, type, social, picture}) => {
     return (
         <div className={styles.band_component}>
             <div className={styles.picture}>
-                <img src={picture?.src} alt={name} />
+                <Image src={picture?.src} alt={name} />
             </div>
             <div className={styles.info}>
                 <div className={styles.name}>{name}</div>

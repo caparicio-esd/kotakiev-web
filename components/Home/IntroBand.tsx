@@ -2,6 +2,7 @@ import { FacebookLogo, InstagramLogo } from 'phosphor-react'
 import React from 'react'
 import styles from './IntroBand.module.sass'
 import tempo from './../../public/assets/img/TEMPO_07 2.png'
+import Image from 'next/image'
 
 const IntroBand = () => {
     return (
@@ -36,7 +37,7 @@ const IntroBand = () => {
                     </p>
                 </div>
                 <div className={styles.pic}>
-                    <img src={tempo.src} alt="" />
+                    <Image src={tempo.src} alt="" />
                 </div>
             </div>
             <div className={styles.footer}>

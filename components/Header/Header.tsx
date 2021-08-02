@@ -3,6 +3,7 @@ import styles from './Header.module.sass'
 import { NavigationContext } from '../../context/Navigation'
 import { LanguageContext } from '../../context/Language'
 import logo from '../../public/assets/img/logo.svg'
+import Image from 'next/image'
 
 const Header = () => {
     const menuItems = useContext(NavigationContext)[0]
@@ -14,7 +15,7 @@ const Header = () => {
                 <div className={styles.header_holder}>
                     <div className={styles.header_brand}>
                         <div className={styles.logo}>
-                            <img src={logo.src} width={logo.width} alt="logo" />
+                            <Image src={logo.src} width={logo.width} alt="logo" />
                         </div>
                     </div>
                     <div className={styles.header_menu}>
