@@ -37,7 +37,7 @@ const IntroBand = () => {
                     </p>
                 </div>
                 <div className={styles.pic}>
-                    <Image src={tempo.src} alt="" />
+                    <Image src={tempo} layout="fill" />
                 </div>
             </div>
             <div className={styles.footer}>

@@ -6,7 +6,7 @@ const BandComponent = ({name, type, social, picture}) => {
     return (
         <div className={styles.band_component}>
             <div className={styles.picture}>
-                <Image src={picture?.src} alt={name} />
+                <Image src={picture?.src} alt={name} layout="fill" />
             </div>
             <div className={styles.info}>
                 <div className={styles.name}>{name}</div>
