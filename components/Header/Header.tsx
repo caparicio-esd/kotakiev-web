@@ -1,35 +1,43 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import styles from './Header.module.sass'
+import { NavigationContext } from '../../context/Navigation'
+import { LanguageContext } from '../../context/Language'
+import logo from '../../public/assets/img/logo.svg'
 
 const Header = () => {
+    const menuItems = useContext(NavigationContext)[0]
+    const [langs] = useContext(LanguageContext)
+
     return (
-        <header className="header">
-            <div className="header_brand">
-                <div className="logo"></div>
-            </div>
-            <div className="header_menu">
-                <ul>
-                    <li>
-                        <a href="#">Conócenos</a>
-                    </li>
-                    <li>
-                        <a href="#">Música</a>
-                    </li>
-                    <li>
-                        <a href="#">Conciertos</a>
-                    </li>
-                    <li>
-                        <a href="#">Merch</a>
-                    </li>
-                    <li>
-                        <a href="#">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <div className="header_lang_switcher">
-                <div className="lang active">ES</div>
-                <div className="lang">EN</div>
-            </div>
-        </header>
+        <>
+            <header className={styles.header}>
+                <div className={styles.header_holder}>
+                    <div className={styles.header_brand}>
+                        <div className={styles.logo}>
+                            <img src={logo.src} width={logo.width} alt="logo" />
+                        </div>
+                    </div>
+                    <div className={styles.header_menu}>
+                        <ul>
+                            {menuItems.map((mItem, i) => (
+                                <li key={i}>
+                                    <a href="#">{mItem}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={styles.header_lang_switcher}>
+                        <ul>
+                            {langs.map((lang, i) => (
+                                <li className={[styles.lang].join(' ')} key={i}>
+                                    <a href="#">{lang}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </>
     )
 }
 

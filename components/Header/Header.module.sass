@@ -1,0 +1,53 @@
+.header
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #222
+    color: white
+    font-size: .95rem
+    .header_holder
+        display: flex
+        align-items: center
+        justify-content: space-between  
+        max-width: 1180px
+        width: 90%
+    .header_brand
+        display: flex
+        margin-right: 1rem
+        .logo
+            display: flex
+    .header_menu
+        margin-right: auto
+        ul
+            display: flex
+            align-items: center
+            margin: 0
+            padding: 0
+            list-style: none
+            li
+                display: flex
+                margin-right: 0.5rem
+                a
+                    color: inherit
+                    padding: .5rem 0
+
+    .header_lang_switcher
+        display: flex
+        align-items: center 
+        ul
+            display: flex
+            align-items: center
+            margin: 0
+            padding: 0
+            list-style: none
+            li
+                a
+                    color: inherit
+        .lang
+            background: transparent
+            border: 1px solid white
+            padding: .25rem .75rem
+            font-size: .95rem
+            &.active
+                background: white
+                color: #222

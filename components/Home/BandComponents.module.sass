@@ -1,0 +1,22 @@
+.band_components
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: .5rem
+    height: 275px
+    .band_component
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr auto
+        .picture
+            grid-area: 1 / 1 / -1 / -1
+            background-color: #eee
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: center
+        .info
+            grid-area: 2 / 1 / -1 / -1
+            .name
+            .type
+            .social
