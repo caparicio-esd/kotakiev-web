@@ -37,18 +37,18 @@ const IntroBand = () => {
                     </p>
                 </div>
                 <div className={styles.pic}>
-                    <Image src={tempo} layout="fill" />
+                    <Image src={tempo.src} width={tempo.width} height={tempo.height}  />
                 </div>
             </div>
             <div className={styles.footer}>
                 <div>Síguenos en redes</div>
                 <div className={styles.links}>
-                    <div className={styles.link}>
+                    <div className={styles.link} style={{backgroundColor: "#4E5FED"}}>
                         <a href="#">
                             <FacebookLogo size={25} weight="bold" />
                         </a>
                     </div>
-                    <div className={styles.link}>
+                    <div className={styles.link} style={{backgroundColor: "#8b4eed"}}>
                         <a href="#">
                             <InstagramLogo size={25} weight="bold" />
                         </a>

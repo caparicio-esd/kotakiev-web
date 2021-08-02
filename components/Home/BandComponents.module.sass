@@ -7,10 +7,13 @@
         display: grid
         grid-template-columns: 1fr
         grid-template-rows: 1fr auto
+        overflow: hidden
         .picture
             grid-area: 1 / 1 / -1 / -1
             background-color: #eee
             position: relative
+            filter: brightness(100%)
+            transition: filter 350ms ease
             img
                 width: 100%
                 height: 100%
@@ -18,6 +21,26 @@
                 object-position: center
         .info
             grid-area: 2 / 1 / -1 / -1
+            z-index: 2
+            color: white
+            text-shadow: 0 0 5px rgba(0, 0, 0, .5)
+            padding: 1rem
+            transform: translate(0, 100%)
+            transition: transform 350ms ease
             .name
+                font-weight: bold
+                margin-bottom: -0.125rem
             .type
+                font-size: .9rem
             .social
+                color: white
+                a
+                    color: inherit
+        &:hover
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2)
+            .picture
+                filter: brightness(60%)
+                transition: filter 350ms ease
+            .info
+                transform: translate(0, 0)
+                transition: transform 350ms ease

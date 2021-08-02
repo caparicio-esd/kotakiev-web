@@ -14,7 +14,7 @@ const BandComponents = () => {
                 name="Mario Matobella"
                 picture={marioPicture}
                 type="Bajo eléctrico"
-                social="" />
+                social="http://facebook.com/mario" />
             <BandComponent
                 name="Nina Ivanovic"
                 picture={ninaPicture}
