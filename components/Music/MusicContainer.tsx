@@ -6,7 +6,7 @@ const MusicContainer = () => {
     const {musicTitles} = useContext(MusicContext)
         return (
         <div className="music_container">
-            {musicTitles.map((musicTitle, i) => <MusicBlock key={i} musicTitle={musicTitle} />)}
+            {musicTitles.map((musicTitle, i) => <MusicBlock key={i} musicTrack={i} musicTitle={musicTitle} />)}
         </div>
     )
 }

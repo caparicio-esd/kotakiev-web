@@ -33,7 +33,7 @@ const IntroBand = () => {
                         sorprendente donde se dan la mano el baile, la
                         experimentación sonora y la improvisación; una
                         experiencia que, sin duda, atrapa y llama atención de un
-                        público muy variado.{' '}
+                        público muy variado.
                     </p>
                 </div>
                 <div className={styles.pic}>

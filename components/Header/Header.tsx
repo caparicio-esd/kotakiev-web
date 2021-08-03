@@ -10,35 +10,33 @@ const Header = () => {
     const [langs] = useContext(LanguageContext)
 
     return (
-        <>
-            <header className={styles.header}>
-                <div className={styles.header_holder}>
-                    <div className={styles.header_brand}>
-                        <div className={styles.logo}>
-                            <Image src={logo.src} width={logo.width} height={logo.height} alt="logo" />
-                        </div>
-                    </div>
-                    <div className={styles.header_menu}>
-                        <ul>
-                            {menuItems.map((mItem, i) => (
-                                <li key={i}>
-                                    <a href="#">{mItem}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div className={styles.header_lang_switcher}>
-                        <ul>
-                            {langs.map((lang, i) => (
-                                <li className={[styles.lang].join(' ')} key={i}>
-                                    <a href="#">{lang}</a>
-                                </li>
-                            ))}
-                        </ul>
+        <header className={styles.header}>
+            <div className={styles.header_holder}>
+                <div className={styles.header_brand}>
+                    <div className={styles.logo}>
+                        <Image src={logo.src} width={logo.width} height={logo.height} alt="logo" />
                     </div>
                 </div>
-            </header>
-        </>
+                <div className={styles.header_menu}>
+                    <ul>
+                        {menuItems.map((mItem, i) => (
+                            <li key={i}>
+                                <a href="#">{mItem}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className={styles.header_lang_switcher}>
+                    <ul>
+                        {langs.map((lang, i) => (
+                            <li className={[styles.lang].join(' ')} key={i}>
+                                <a href="#">{lang}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </header>
     )
 }
 

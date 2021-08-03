@@ -1,0 +1,77 @@
+.music_block
+    display: flex
+    align-items: center
+    justify-content: space-between
+    border: 1px solid #ddd
+    margin-bottom: .5rem
+    padding-right: 1rem
+    .music_block_picture
+        position: relative
+        height: 75px
+        width: 75px
+    .music_block_title
+        margin-left: 1rem
+        margin-right: auto
+        font-size: 1.1rem
+        font-weight: bold
+    .music_block_seek
+        flex-basis: 100%
+        max-width: 300px
+        margin: 0 1rem
+    .music_block_control
+    &.active
+        border: 1px solid #ccc
+
+
+.music_block_seeker
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-size: .9rem
+    width: 100%
+    .seek_time
+    .bar 
+        position: relative
+        margin: 0 1rem
+        flex-basis: 100%
+        .bg_bar
+            position: absolute
+            top: 50%
+            width: 100%
+            height: 3px
+            left: 0
+            background-color: #ddd
+            transform: translate(0, -50%)
+        .loading_bar
+            position: absolute
+            top: 50%
+            width: 50%
+            height: 3px
+            left: 0
+            background-color: #c0c0c0
+            transform: translate(0, -50%)
+        .progress_bar
+            position: absolute
+            top: 50%
+            width: 20%
+            height: 3px
+            left: 0
+            background-color: #818181
+            transform: translate(0, -50%)
+        .progress_dot
+            position: absolute
+            top: 50%
+            width: 15px
+            height: 15px
+            left: 20%
+            border-radius: 50%
+            background-color: #818181
+            transform: translate(-50%, -50%)
+            transition: left 100ms ease
+        .progress_dot_hint
+            position: absolute
+            top: calc(50% - 1.25rem)
+            left: 20%
+            transform: translate(-50%, -50%)
+    .time_last
+        
