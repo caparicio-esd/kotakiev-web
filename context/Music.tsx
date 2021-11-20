@@ -15,30 +15,42 @@ const originalMusic = [
         path: sample01,
         picture: brabra,
         howlerController: null,
+        isVideo: false
     },
     {
         title: 'Puerto España',
         path: sample02,
         picture: puerto,
         howlerController: null,
+        isVideo: false
     },
     {
         title: 'Tucán con papas trémulas',
         path: sample03,
         picture: tucan,
         howlerController: null,
+        isVideo: false
     },
     {
         title: 'Rafaela dos Santos',
         path: sample01,
         picture: rafaela,
         howlerController: null,
+        isVideo: false
     },
     {
         title: 'Maria Gsus4',
         path: sample02,
         picture: mariagsus,
         howlerController: null,
+        isVideo: false
+    },
+    {
+        title: 'Jabalcón',
+        path: sample02,
+        picture: mariagsus,
+        howlerController: null,
+        isVideo: true
     },
 ]
 
