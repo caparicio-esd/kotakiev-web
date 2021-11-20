@@ -7,26 +7,32 @@ const MusicBlockSeekerDraggable = (props) => {
     const { howlerController } = musicContext.musicTitles[props.musicTrack]
     const duration = howlerController.duration()
     const ref = useRef(null)
-    const [interactable, setInteractable] = useState(null)
+    let parentWidth = 0;
 
     useEffect(() => {
-        setInteractable(ref.current)
-        console.log(interactable)
-
         interact(ref.current).draggable({
             listeners: {
-                start(event) {
-                    console.log(event.type, event.target)
+                start(ev: Interact.DragEvent) {
+                    const target: HTMLElement = ev.target as HTMLElement
+                    const rect: DOMRect = (target.parentNode as HTMLElement).getBoundingClientRect()
+                    parentWidth = rect.width;
+                    howlerController.pause()
+                    props.setShowDotHint(true)
                 },
-                move(event) {
-                    console.log(event.type, event.target)
-                    props.seekTo()
+                move(ev: Interact.DragEvent) {   
+                    const deltaDuration = duration / parentWidth                            
+                    props.seekTo(howlerController.seek() + ev.delta.x * deltaDuration, false)
                 },
+                end(ev: Interact.DragEvent) {
+                    props.seekTo(howlerController.seek(), true)
+                    props.setShowDotHint(false)
+                }
             },
             modifiers: [
-                interact.modifiers.restrictRect({
+                interact.modifiers.restrict({
                     restriction: 'parent',
-                }),
+                    endOnly: true
+                })
             ],
         })
     }, [])

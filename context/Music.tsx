@@ -5,11 +5,8 @@ import brabra from './../public/assets/img/brabra.png'
 import mariagsus from './../public/assets/img/mariagsus.png'
 import rafaela from './../public/assets/img/rafaela.png'
 import tucan from './../public/assets/img/tucan.png'
-//@ts-ignore
 import sample01 from './../public/assets/music/sample01.mp3'
-//@ts-ignore
 import sample02 from './../public/assets/music/sample02.mp3'
-//@ts-ignore
 import sample03 from './../public/assets/music/sample03.mp3'
 
 const originalMusic = [
@@ -58,7 +55,9 @@ export const MusicContextProvider = (props) => {
         activeTrack,
         setActiveTrack,
     }
-
+    /**
+     * add howler controller to each
+     */
     useEffect(() => {
         const musicTitles_ = musicTitles.map((musicTitle, i) => {
             return {
@@ -72,17 +71,13 @@ export const MusicContextProvider = (props) => {
         setMusicTitles(musicTitles_)
     }, [])
 
+    // stop each song on change active track
+    // TODO: refactor this to not stop each song, but the last active
     useEffect(() => {
         musicTitles.forEach((musicTitle) => {
             musicTitle.howlerController?.stop()
         })
     }, [activeTrack])
-
-    // useEffect(() => {
-    //     console.log();
-    //     value.musicTitles[value.activeTrack]?.howlerController.play()
-    //     console.log(value.musicTitles[value.activeTrack]?.howlerController.playing());
-    // })
 
     return <MusicContext.Provider value={value}>{props.children}</MusicContext.Provider>
 }

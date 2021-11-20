@@ -6,7 +6,6 @@ import IntroBand from '../components/Home/IntroBand'
 import BandComponents from '../components/Home/BandComponents'
 import MusicContainer from '../components/Music/MusicContainer'
 import Title from '../components/Global/Title'
-import { MusicContextProvider } from '../context/Music'
 
 const Home = () => {
     return (

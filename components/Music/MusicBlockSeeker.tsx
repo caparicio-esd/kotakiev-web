@@ -6,6 +6,7 @@ import styles from './MusicBlock.module.sass'
 const MusicBlockSeeker = ({ musicTitle, musicTrack }) => {
     const musicContext = useContext(MusicContext)
     const [seek, setSeek] = useState(0)
+    const [showDotHint, setShowDotHint] = useState(false)
     const { howlerController } = musicContext.musicTitles[musicTrack]
     const duration = howlerController.duration()
 
@@ -35,8 +36,13 @@ const MusicBlockSeeker = ({ musicTitle, musicTrack }) => {
     const getEllapsedTime = (seek) => getDateString(seek)
     const getLeftTime = (seek) => getDateString(duration - seek)
     const prependZero = (num) => (num <= 9 ? `0${num}` : `${num}`)
-    const seekTo = () => {
-        console.log('seek...')
+    const seekTo = (pointToSeek, play = false) => {
+        console.log(howlerController)
+        if (!play) howlerController.seek(pointToSeek)
+        else {
+            howlerController.seek(pointToSeek)
+            howlerController.play()
+        }
     }
 
     return (
@@ -46,12 +52,15 @@ const MusicBlockSeeker = ({ musicTitle, musicTrack }) => {
                 <div className={styles.bg_bar}></div>
                 <div className={styles.loading_bar}></div>
                 <div className={styles.progress_bar} style={{ ...getProgressWidth(seek) }}></div>
-                <MusicBlockSeekerDraggable seekTo={seekTo} musicTrack={musicTrack}>
+                <MusicBlockSeekerDraggable seekTo={seekTo} musicTrack={musicTrack} setShowDotHint={setShowDotHint}>
                     <div className={styles.progress_dot} style={{ ...getProgressPosition(seek) }}></div>
                 </MusicBlockSeekerDraggable>
-                <div className={styles.progress_dot_hint} style={{ ...getProgressPosition(seek) }}>
-                    {seek}
-                </div>
+                {showDotHint ?
+                    <div className={styles.progress_dot_hint} style={{ ...getProgressPosition(seek) }}>
+                        {getEllapsedTime(seek)}
+                    </div> : null
+                }
+
             </div>
             <div className={styles.time_last}>{getLeftTime(seek)}</div>
         </div>
